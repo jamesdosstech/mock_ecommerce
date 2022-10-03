@@ -21,8 +21,6 @@ const SignInForm = () => {
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { email, password } = formFields;
 
-    const { setCurrentUser } = useContext(UserContext)
-
     const handleChange = (event) => {
         const { name, value } = event.target;
 
@@ -41,9 +39,7 @@ const SignInForm = () => {
             const { user } = await signInAuthUserWithEmailAndPassword(
                 email, 
                 password
-            );
-            setCurrentUser(user);
-            
+            );            
         } catch(error) {
             switch(error.code) {
                 case 'auth/wrong-password':
@@ -59,8 +55,7 @@ const SignInForm = () => {
     }
 
     const signInWithGoogle = async () => {
-        const {user} = await signInWithGooglePopUp();
-        await createUserDocumentFromAuth(user);
+        await signInWithGooglePopUp();
     }
 
     return (
@@ -85,7 +80,7 @@ const SignInForm = () => {
                     required
                 />
                 <div className='button-container'>
-                    <Button type='submit'>Submit</Button>
+                    <Button type='submit'>SIGN IN</Button>
                     <Button type='button' onClick={signInWithGoogle} buttonType='google'>Google Sign In</Button>
                 </div>
             </form>
