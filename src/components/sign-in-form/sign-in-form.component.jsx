@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 
 import FormInput from '../form-input/form-input.component';
-import Button from '../button/button.component';
+import Button, {BUTTON_TYPE_CLASSES} from '../button/button.component';
 
 import './sign-in-form.styles.scss';
 
@@ -79,9 +79,9 @@ const SignInForm = () => {
                     name='password' 
                     required
                 />
-                <div className='button-container'>
+                <div className='buttons-container'>
                     <Button type='submit'>SIGN IN</Button>
-                    <Button type='button' onClick={signInWithGoogle} buttonType='google'>Google Sign In</Button>
+                    <Button buttonType={BUTTON_TYPE_CLASSES.google} type='button' onClick={signInWithGoogle}>Google Sign In</Button>
                 </div>
             </form>
         </div>
