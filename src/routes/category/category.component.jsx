@@ -6,11 +6,9 @@ import {useSelector} from 'react-redux'
 
 import { selectCategoriesMap } from '../../store/categories/categories.selector'
 
-import { useContext, useState, useEffect, Fragment } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 
 import { useParams} from 'react-router-dom'
-
-import { CategoriesContext } from '../../context/categories.context'
 
 const Category = () => {
     const { category } = useParams();

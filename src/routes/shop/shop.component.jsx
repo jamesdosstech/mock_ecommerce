@@ -1,7 +1,7 @@
 import './shop.styles.scss'
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { setCategoriesMap } from '../../store/categories/categories.action';
+import { setCategories } from '../../store/categories/categories.action';
 
 import CategoriesPreview from '../categories-preview/categories-preview.component';
 import Category from '../category/category.component'
@@ -13,8 +13,9 @@ const Shop = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         const getCategoriesMap = async () => {
-            const categoryMap = await getCategoriesAndDocuments();
-            dispatch(setCategoriesMap(categoryMap));
+            const categoriesArray = await getCategoriesAndDocuments();
+            dispatch(setCategories(categoriesArray));
+            // dispatch(setCategoriesMap(categoryMap));
         }
         getCategoriesMap()
     },[dispatch])
