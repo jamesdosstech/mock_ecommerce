@@ -104,7 +104,7 @@ const firebaseConfig = {
         }
     }
 
-    return userDocRef;
+    return userSnapshot;
   }
 
   export const createAuthUserWithEmailAndPassword = async (email, password) => {
